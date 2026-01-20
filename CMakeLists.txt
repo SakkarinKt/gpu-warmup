@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.27)
+project(gpu_warmup LANGUAGES CXX CUDA)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CUDA_STANDARD 17)
+# Build for common modern architectures; override with -DCMAKE_CUDA_ARCHITECTURES="80;86;89"
+if(NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
+  set(CMAKE_CUDA_ARCHITECTURES 80 86 89)
+endif()
+add_executable(vector_add src/vector_add.cu)
+set_property(TARGET vector_add PROPERTY CUDA_ARCHITECTURES ${CMAKE_CUDA_ARCHITECTURES})
