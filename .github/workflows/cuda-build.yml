@@ -1,0 +1,13 @@
+name: CUDA build (compile-only)
+on:
+  pull_request:
+  push: { branches: [main] }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build with nvcc in container
+        run: |
+          docker run --rm -v $PWD:/work -w /work nvidia/cuda:12.5.0-devel-ubuntu22.04 \
+            bash -lc "apt-get update && apt-get install -y cmake build-essential && cmake -S . -B build && cmake --build build -j"

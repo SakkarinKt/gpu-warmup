@@ -1,0 +1,9 @@
+GPU Device 0: "Ada" with compute capability 8.9
+
+CPU iterations : 2954
+CPU error : 4.988e-03
+CPU Processing time: 2461.964111 (ms)
+GPU iterations : 2954
+GPU error : 4.988e-03
+GPU Processing time: 81.672997 (ms)
+&&&& jacobiCudaGraphs PASSED

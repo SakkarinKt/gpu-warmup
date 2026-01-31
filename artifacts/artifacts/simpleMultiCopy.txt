@@ -1,0 +1,32 @@
+[simpleMultiCopy] - Starting...
+> Using CUDA device [0]: NVIDIA L4
+[NVIDIA L4] has 58 MP(s) x 128 (Cores/MP) = 7424 (Cores)
+> Device name: NVIDIA L4
+> CUDA Capability 8.9 hardware with 58 multi-processors
+> scale_factor = 1.00
+> array_size   = 4194304
+
+
+Relevant properties of this CUDA device
+(X) Can overlap one CPU<>GPU data transfer with GPU kernel execution (device property "deviceOverlap")
+(X) Can overlap two CPU<>GPU data transfers with GPU kernel execution
+    (Compute Capability >= 2.0 AND (Tesla product OR Quadro 4000/5000/6000/K5000)
+
+Measured timings (throughput):
+ Memcpy host to device	: 1.370400 ms (12.242569 GB/s)
+ Memcpy device to host	: 1.281696 ms (13.089856 GB/s)
+ Kernel			: 0.057664 ms (2909.478383 GB/s)
+
+Theoretical limits for speedup gained from overlapped data transfers:
+No overlap at all (transfer-kernel-transfer): 2.709760 ms 
+Compute can overlap with one transfer: 2.652096 ms
+Compute can overlap with both data transfers: 1.370400 ms
+
+Average measured timings over 10 repetitions:
+ Avg. time when execution fully serialized	: 2.702643 ms
+ Avg. time when overlapped using 4 streams	: 1.673421 ms
+ Avg. speedup gained (serialized - overlapped)	: 1.029222 ms
+
+Measured throughput:
+ Fully serialized execution		: 12.415413 GB/s
+ Overlapped using 4 streams		: 20.051402 GB/s
